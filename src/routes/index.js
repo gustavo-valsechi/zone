@@ -14,7 +14,7 @@ export function Routes() {
     const routeNameRef = useRef()
     const navigationRef = useNavigationContainerRef()
 
-    const { token, loadingSessionToken } = useAuth()
+    const { token, loadingToken } = useAuth()
 
     if (netInfo.isConnected === false) {
         return (
@@ -40,7 +40,7 @@ export function Routes() {
                 routeNameRef.current = currentRouteName
             }}
         >
-            {loadingSessionToken
+            {loadingToken
             ? <AppLoading/>
             : token
             ? <AppRoutes navigation={navigationRef} />

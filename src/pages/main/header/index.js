@@ -1,33 +1,17 @@
-import React, { useEffect } from 'react';
+import React from 'react'
 import { Button, Icon, LoadingBar, Navigation as Menu, Text } from '../../../components'
 import { Container, ContainerAmount, Amount } from './styles'
-import { useAuth } from '../../../contexts/auth'
-import { useDispatch, useSelector } from "react-redux"
 import { Refactoring, whatsapp } from '../../../utils'
 import Toast from "react-native-toast-message"
-
-import NotificationActions from '../../../store/ducks/notification'
-import ProfileActions from '../../../store/ducks/profile'
-import WalletActions from '../../../store/ducks/wallet'
 
 import Profile from './profile'
 
 export default function Header(props) {
-  const dispatch = useDispatch()
 
-  const { token } = useAuth()
-
-  const { amount, loadingAmount } = useSelector((state) => state.wallet)
+  const amount = 69.35
+  const loadingAmount = false
 
   const money = (value) => Refactoring.format.money(true, value)
-
-  useEffect(() => {
-    if (!token) return
-
-    dispatch(NotificationActions.notificationsRequest())
-    dispatch(ProfileActions.profileRequest())
-    dispatch(WalletActions.amountRequest())
-  }, [dispatch, token])
 
   const navigation = [
     {

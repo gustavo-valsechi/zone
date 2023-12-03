@@ -6,10 +6,9 @@ import { useSelector } from "react-redux"
 
 export default function Profile(props) {
 
-  const { signOut } = useAuth()
-  
-  const { profile, loadingProfile } = useSelector((state) => state.profile)
-  const { notifications } = useSelector((state) => state.notification)
+  const { signOut, profile, loadingProfile } = useAuth()
+
+  const notifications = 15
 
   const badge_custom = `
     position: absolute;
@@ -28,13 +27,13 @@ export default function Profile(props) {
   return (
     <Container>
       <ContainerUser onPress={() => !loadingProfile && props.navigation.navigate('Profile')}>
-        <Avatar loading={loadingProfile} white icon="user-alt" source={profile.foto_url} />
+        <Avatar loading={loadingProfile} white icon="user-alt" source={profile.photo} />
         <ContainerLabel>
           <Text>Olá,</Text>
           {loadingProfile
           ? <LoadingBar white width={150} mt={6.5} height={15} />
           : <ContainerName>
-              <Text bold>{profile.nome}</Text>
+              <Text bold>{profile.name}</Text>
               <Icon size={23} icon="chevron-right" />
             </ContainerName>}
         </ContainerLabel>
@@ -42,11 +41,11 @@ export default function Profile(props) {
       <ContainerIcons>
         <Pressable onPress={() => props.navigation.navigate("Notifications")}>
           <Icon icon='bell-outline' />
-          {notifications.unread > 0 &&
+          {notifications > 0 &&
             <>
               <Icon icon='checkbox-blank-circle' size={15} color='red' custom={badge_custom} />
-              <Text size={9} bold custom={badgePending(notifications.unread)}>
-                {notifications.unread < 10 ? notifications.unread : '9+'}
+              <Text size={9} bold custom={badgePending(notifications)}>
+                {notifications < 10 ? notifications : '9+'}
               </Text>
             </>}
         </Pressable>

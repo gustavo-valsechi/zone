@@ -4,19 +4,11 @@ import { ContainerHandler, ContainerTitle, ContainerWallet } from './styles'
 import { Dimensions, RefreshControl } from 'react-native'
 import { PanGestureHandler } from 'react-native-gesture-handler'
 import { runOnJS, useAnimatedGestureHandler, useAnimatedStyle, useSharedValue, withDelay, withSpring, withTiming } from 'react-native-reanimated'
-// import { useDispatch, useSelector } from "react-redux"
 
-// import ProfileActions from '../../store/ducks/profile'
-// import NotificationActions from '../../store/ducks/notification'
-// import WalletActions from '../../store/ducks/wallet'
-
-// import Header from './header'
-// import Wallet from './wallet'
+import Header from './header'
+import Wallet from './wallet'
 
 export default function Main({ navigation }) {
-  // const dispatch = useDispatch()
-
-  // const { filtersWallet } = useSelector((state) => state.wallet)
 
   const [expanded, setExpanded] = useState(false)
 
@@ -77,16 +69,9 @@ export default function Main({ navigation }) {
     })
   }
 
-  // const reload = () => {
-  //   dispatch(ProfileActions.profileRequest())
-  //   dispatch(WalletActions.amountRequest())
-  //   dispatch(WalletActions.setFiltersWallet({...filtersWallet}))
-  //   dispatch(WalletActions.setWalletPage(0))
-  // }
-
   return (
     <Container>
-      {/* <RefreshControl tintColor="#fff" enabled={!expanded} refreshing={false} onRefresh={reload}>
+      <RefreshControl tintColor="#fff" enabled={!expanded} refreshing={false} onRefresh={(() => {})}>
         <Header navigation={navigation} zIndex={expanded ? 99 : 100} />
       </RefreshControl>
       <ContainerWallet style={[{ top: TOP }, animateStyle]}>
@@ -99,7 +84,7 @@ export default function Main({ navigation }) {
           </ContainerHandler>
         </PanGestureHandler>
         <Wallet expanded={expanded} navigation={navigation} />
-      </ContainerWallet> */}
+      </ContainerWallet>
     </Container>
   )
 }

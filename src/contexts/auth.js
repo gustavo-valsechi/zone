@@ -1,4 +1,4 @@
-import React, {createContext, useContext, useEffect} from "react"
+import React, { createContext, useContext, useEffect, useState } from "react"
 import AsyncStorage from "@react-native-community/async-storage"
 import {useDispatch, useSelector} from "react-redux"
 import AuthActions from '../store/ducks/auth'
@@ -6,41 +6,33 @@ import AuthActions from '../store/ducks/auth'
 const AuthContext = createContext([])
 
 function AuthProvider({children}) {
-    const dispatch = useDispatch()
 
-    const {
-        sessionToken: token,
-        loadingSessionToken,
-    } = useSelector(state => state.auth)
+    const [token, setToken] = useState("")
+    const [loadingToken, setLoadingToken] = useState(true)
+    const [loadingSignIn, setLoadingSignIn] = useState(false)
 
-    const sessionStorageKey = '@nummuscustomer:token'
+    async function signIn(data) {
+        setLoadingSignIn(true)
 
-    async function signInWithPlatform(data) {
-        dispatch(AuthActions.signInPlatformRequest(data))
+        // dispatch(AuthActions.signInPlatformRequest(data))
+
+        setLoadingSignIn(false)
     }
 
     async function signOut() {
-        dispatch(AuthActions.signOutPlatformRequest())
-    }
-
-    async function recoverPassword(data) {
-        dispatch(AuthActions.recoverPasswordRequest(data))
-    }
-
-    async function resetPassword(data, navigation) {
-        dispatch(AuthActions.resetPasswordRequest(data, navigation))
+        await AsyncStorage.removeItem('@token')
     }
 
     useEffect(() => {
         const loadStorageDate = async () => {
-            const tokenStorage = await AsyncStorage.getItem(sessionStorageKey)
+            const tokenStorage = await AsyncStorage.getItem('@token')
 
             if (tokenStorage) {
-                dispatch(AuthActions.initSystemRequest({ token: tokenStorage }))
-                dispatch(AuthActions.setSessionToken(tokenStorage))
+                // dispatch(AuthActions.initSystemRequest({ token: tokenStorage }))
+                setToken(tokenStorage)
             } 
 
-            dispatch(AuthActions.setLoadingSessionToken(false))
+            setLoadingToken(false)
         }
 
         loadStorageDate()
@@ -49,11 +41,12 @@ function AuthProvider({children}) {
     return (
         <AuthContext.Provider value={{
             token,
-            loadingSessionToken,
-            signInWithPlatform,
+            loadingToken,
+            signIn,
             signOut,
-            recoverPassword,
-            resetPassword,
+            loadingSignIn,
+            profile: { name: "Gustavo Valsechi de Freitas" },
+            loadingProfile: false
         }}>
             {children}
         </AuthContext.Provider>

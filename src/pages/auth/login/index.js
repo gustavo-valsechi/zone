@@ -1,18 +1,15 @@
 import React, { useRef, useState } from 'react'
 import { Container, Form, Icon, Text } from "../../../components"
 import { useAuth } from "../../../contexts/auth"
-import { useSelector } from "react-redux"
 import { ContainerForm, Logo, Scroll, Support } from "./styles"
 import { TouchableOpacity } from 'react-native'
 import { Refactoring, whatsapp } from '../../../utils'
 import * as Yup from 'yup'
 
 export default function Login({ navigation }) {
-    const formRef = useRef(null)
+    const formRef = useRef({})
 
-    const { signInWithPlatform } = useAuth()
-
-    const { loadingAuthentication } = useSelector(state => state.auth)
+    const { signIn, loadingSignIn } = useAuth()
 
     const [phone, setPhone] = useState("")
     const [show, setShow] = useState(false)
@@ -33,7 +30,7 @@ export default function Login({ navigation }) {
                 password: data.password,
             }
 
-            await signInWithPlatform(body)
+            await signIn(body)
         } catch (err) {
             if (err instanceof Yup.ValidationError) {
                 const errorMessages = {}
@@ -74,33 +71,33 @@ export default function Login({ navigation }) {
         {
             label: { text: 'entrar' },
             onPress: () => formRef.current.submitForm(),
-            loading: loadingAuthentication
+            loading: loadingSignIn
         },
         {
             color: 'black-0',
             label: { text: 'esqueci minha senha', color: 'secondary' },
             onPress: () => navigation.navigate('Recovery'),
-            disabled: loadingAuthentication
+            disabled: loadingSignIn
         }
     ]
 
-    const header = {
-        title: 'Login',
-        left: {
-            function: () => navigation.navigate('Start'),
-            icon: 'chevron-left'
-        },
-        right: {
-            function: () => whatsapp('4834139822'),
-            icon: {
-                name: 'whatsapp',
-                size: 25
-            }
-        }
-    }
-
     return (
-        <Container header={header}>
+        <Container 
+            header={{
+                title: 'Login',
+                left: {
+                    function: () => navigation.navigate('Start'),
+                    icon: 'chevron-left'
+                },
+                right: {
+                    function: () => whatsapp('4834139822'),
+                    icon: {
+                        name: 'whatsapp',
+                        size: 25
+                    }
+                }
+            }}
+        >
             <ContainerForm>
                 <Logo source={require('../../../assets/logo.png')} />
                 <Scroll>
