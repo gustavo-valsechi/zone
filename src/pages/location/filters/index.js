@@ -1,10 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { Filter } from '../../../components'
-import * as Yup from 'yup'
-import _ from 'lodash'
+import React, { useEffect, useRef, useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { Filter } from "../../../components"
+import * as Yup from "yup"
+import _ from "lodash"
 
-import EstablishmentActions from '../../../store/ducks/establishment'
+import EstablishmentActions from "../../../store/ducks/establishment"
 
 export default function Filters(props) {
   const dispatch = useDispatch()
@@ -56,9 +56,9 @@ export default function Filters(props) {
 
   const inputs = [
     {
-      type: 'select',
-      name: 'uf',
-      label: 'UF',
+      type: "select",
+      name: "uf",
+      label: "UF",
       value: ufEstablishment,
       onChangeText: (value) => {
         dispatch(EstablishmentActions.setCityEstablishment(""))
@@ -68,9 +68,9 @@ export default function Filters(props) {
       disabled: loadingUfCityLocation
     },
     {
-      type: 'select',
-      name: 'city',
-      label: 'Cidade',
+      type: "select",
+      name: "city",
+      label: "Cidade",
       value: cityEstablishment,
       options: _.map(ufCityLocation.city, (data) => ({ [data.label]: data.value })),
       disabled: loadingUfCityLocation

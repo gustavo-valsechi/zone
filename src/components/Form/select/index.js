@@ -1,10 +1,10 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react'
-import { Container, ContainerSelect, Input, IconSelect, InputHidden, Error } from './styles'
-import { useField } from '@unform/core'
-import Text from '../../Text'
-import _ from 'lodash';
+import React, { useCallback, useEffect, useRef, useState } from "react"
+import { Container, ContainerSelect, Input, IconSelect, InputHidden, Error } from "./styles"
+import { useField } from "@unform/core"
+import Text from "../../Text"
+import _ from "lodash";
 
-import Options from './options'
+import Options from "./options"
 
 export default function SelectInput(props) {
   const inputRef = useRef(null);
@@ -12,7 +12,7 @@ export default function SelectInput(props) {
   const { fieldName, registerField, defaultValue, error } = useField(props.name);
 
   const [modal, setModal] = useState(false)
-  const [optionLabel, setOptionLabel] = useState('')
+  const [optionLabel, setOptionLabel] = useState("")
 
   useEffect(() => {
     if (props.showModal) setModal(true)
@@ -29,7 +29,7 @@ export default function SelectInput(props) {
       getValue() {
         if (inputRef.current) return inputRef.current.value;
 
-        return '';
+        return "";
       },
       setValue(ref, value) {
         if (inputRef.current) {
@@ -39,8 +39,8 @@ export default function SelectInput(props) {
       },
       clearValue() {
         if (inputRef.current) {
-          inputRef.current.setNativeProps({ text: '' });
-          inputRef.current.value = '';
+          inputRef.current.setNativeProps({ text: "" });
+          inputRef.current.value = "";
         }
       }
     });
@@ -52,7 +52,7 @@ export default function SelectInput(props) {
   }, [props.onChangeText, inputRef.current])
 
   useEffect(() => {
-    if (!props.value && props.value !== "") return setOptionLabel('')
+    if (!props.value && props.value !== "") return setOptionLabel("")
 
     const item = _.find(props.options, (data) => data[Object.keys(data)] === props.value)
 
@@ -61,15 +61,15 @@ export default function SelectInput(props) {
 
   return (
     <Container labelOut={props.labelOut} error={error}>
-      {!!props.labelOut && <Text width='100%' color='secondary' bold mb={5}>{props.label}</Text>}
+      {!!props.labelOut && <Text width="100%" color="secondary" bold mb={5}>{props.label}</Text>}
       <InputHidden ref={inputRef} value={defaultValue || props.value} onChange={handleChangeText} />
       <ContainerSelect error={error} activeOpacity={1} onPress={() => !props.disabled && setModal(true)} {...props}>
         <Input textColor={props.textColor}>
-          <Text color={props.textColor || 'secondary'}>
-            {optionLabel || (props.labelOut ? 'selecione' : props.label || props.placeholder)}
+          <Text color={props.textColor || "secondary"}>
+            {optionLabel || (props.labelOut ? "selecione" : props.label || props.placeholder)}
           </Text>
         </Input>
-        <IconSelect name='angle-down' textColor={props.textColor} />
+        <IconSelect name="angle-down" textColor={props.textColor} />
       </ContainerSelect>
       {!!error && <Error>{error}</Error>}
       <Options

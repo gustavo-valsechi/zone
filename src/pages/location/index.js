@@ -1,15 +1,15 @@
-import React, { useCallback, useEffect, useState } from 'react'
-import { Button, Container, InfiniteScroll, Map, Text } from '../../components'
-import { ContainerLocation, ContainerMap, ContainerContent, ContainerAlert } from './styles'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useCallback, useEffect, useState } from "react"
+import { Button, Container, InfiniteScroll, Map, Text } from "../../components"
+import { ContainerLocation, ContainerMap, ContainerContent, ContainerAlert } from "./styles"
+import { useDispatch, useSelector } from "react-redux"
 import { useAuth } from "../../contexts/auth"
-import * as ExpoLocation from 'expo-location'
-import _ from 'lodash'
+import * as ExpoLocation from "expo-location"
+import _ from "lodash"
 
-import EstablishmentActions from '../../store/ducks/establishment'
+import EstablishmentActions from "../../store/ducks/establishment"
 
-import Filters from './filters'
-import Card from './card'
+import Filters from "./filters"
+import Card from "./card"
 
 export default function Location({ route, navigation }) {
   const dispatch = useDispatch()
@@ -44,7 +44,7 @@ export default function Location({ route, navigation }) {
 
     const { status } = await ExpoLocation.requestForegroundPermissionsAsync()
     
-    if (status === 'granted') {
+    if (status === "granted") {
       const { coords } = await ExpoLocation.getCurrentPositionAsync({})
 
       position = coords
@@ -65,7 +65,7 @@ export default function Location({ route, navigation }) {
       offset: establishmentsPage
     }
     
-    setDenied(status !== 'granted')
+    setDenied(status !== "granted")
     dispatch(EstablishmentActions.establishmentsRequest(credentials))
   }, [dispatch, establishmentsPage, nameEstablishment, token, params, filtersEstablishment])
 
@@ -87,7 +87,7 @@ export default function Location({ route, navigation }) {
   }
 
   const details = (uuid) => {
-    navigation.navigate('EstablishmentDetails', { uuid })
+    navigation.navigate("EstablishmentDetails", { uuid })
   }
 
   return (
@@ -96,7 +96,7 @@ export default function Location({ route, navigation }) {
         title: params.title || "Locais próximos",
         left: {
           function: navigation.goBack,
-          icon: 'chevron-left'
+          icon: "chevron-left"
         }
       }}
     >

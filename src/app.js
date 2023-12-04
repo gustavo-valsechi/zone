@@ -1,7 +1,7 @@
-import React from 'react'
-import { AuthProvider } from './contexts/auth'
-import { Routes } from './routes'
-import { registerRootComponent } from 'expo'
+import React from "react"
+import { AuthProvider } from "./contexts/auth"
+import { Routes } from "./routes"
+import { registerRootComponent } from "expo"
 import Toast from "react-native-toast-message"
 
 export default function App() {

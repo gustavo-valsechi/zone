@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
-import { Container, Input } from './styles'
-import { Refactoring } from '../../../utils'
-import Text from '../../Text'
+import React, { useEffect, useState } from "react"
+import { Container, Input } from "./styles"
+import { Refactoring } from "../../../utils"
+import Text from "../../Text"
 import moment from "moment";
-import 'moment/locale/pt-br'
+import "moment/locale/pt-br"
 
-import ModalPeriod from './Modal'
+import ModalPeriod from "./Modal"
 
 export default function InputPeriod(props) {
 
@@ -29,7 +29,7 @@ export default function InputPeriod(props) {
 
   return (
     <Container error={start > end} {...props}>
-      {!!props.label && <Text color='secondary' bold mb={5}>{props.label}</Text>}
+      {!!props.label && <Text color="secondary" bold mb={5}>{props.label}</Text>}
       <Input onPress={() => setModal(true)} error={start > end} {...props}>
         <ModalPeriod
           isVisible={modal}
@@ -40,13 +40,13 @@ export default function InputPeriod(props) {
           setEnd={setEnd}
           {...props}
         />
-        <Text color={props.color || 'secondary'} bold={props.bold}>
-          {format('date', start) === 'Data inválida'
-          ? props.mode === 'datetime' ? 'selecione a data e hora' : 'selecione a data'
-          : `${format(props.mode || 'date', start)} - ${format(props.mode || 'date', end)}`}
+        <Text color={props.color || "secondary"} bold={props.bold}>
+          {format("date", start) === "Data inválida"
+          ? props.mode === "datetime" ? "selecione a data e hora" : "selecione a data"
+          : `${format(props.mode || "date", start)} - ${format(props.mode || "date", end)}`}
         </Text>
       </Input>
-      {start > end && <Text size={11} color='danger'>Data inicial maior que a final</Text>}
+      {start > end && <Text size={11} color="danger">Data inicial maior que a final</Text>}
     </Container>
   )
 }

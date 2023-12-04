@@ -1,5 +1,5 @@
-import styled from 'styled-components/native'
-import { Colors } from '../../styles';
+import styled from "styled-components/native"
+import { Colors } from "../../styles";
 
 export const Container = styled.ScrollView.attrs({
   showsHorizontalScrollIndicator: false,
@@ -14,8 +14,8 @@ export const Pressable = styled.TouchableOpacity.attrs({
 })`
   width: 90px;
   height: 90px;
-  background: ${props => !!props.disabled ? 'rgba(255, 255, 255, 0.05)' : 'rgba(255, 255, 255, 0.15)'};
-  border-radius: 10px;
+  background: ${props => !!props.disabled ? "rgba(255, 255, 255, 0.05)" : "rgba(255, 255, 255, 0.15)"};
+  border-radius: 15px;
   margin-left: 10px;
   padding: 10px;
   justify-content: space-between;
@@ -27,7 +27,7 @@ export const Soon = styled.View`
   top: 10px;
   right: 0;
   padding: 3px 6px 3px 8px;
-  background: ${Colors['white']};
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
+  background: ${Colors["white"]};
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
 `;

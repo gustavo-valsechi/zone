@@ -1,7 +1,7 @@
 import "intl"
 import "intl/locale-data/jsonp/pt-BR"
 import moment from "moment"
-import 'moment/locale/pt-br'
+import "moment/locale/pt-br"
 import { Linking, Platform } from "react-native"
 import _ from "lodash"
 
@@ -24,20 +24,20 @@ export class Refactoring {
       return identifier[value]
     },
     money: (currency, value) => {
-      if (!value) return ''
+      if (!value && value !== 0) return ""
 
-      const my_locale = 'pt-BR'
+      const my_locale = "pt-BR"
 
       const value_currency = parseFloat(value)
 
       if (currency) {
-        return new Intl.NumberFormat(my_locale, { style: 'currency', currency: 'BRL' }).format(value_currency)
+        return new Intl.NumberFormat(my_locale, { style: "currency", currency: "BRL" }).format(value_currency)
       }
 
       return new Intl.NumberFormat(my_locale, { minimumFractionDigits: 2 }).format(value_currency)
     },
     htmlEC: (content) => {
-      if (!content) return ''
+      if (!content) return ""
 
       let text = content
 
@@ -79,7 +79,7 @@ export class Refactoring {
       return text
     },
     unaccent: (text) => {
-      if (!text) return ''
+      if (!text) return ""
 
       const mapaAcentosHex 	= {
         a : /[\xE0-\xE6]/g,
@@ -98,79 +98,70 @@ export class Refactoring {
       return text
     },
     date: (value) => {
-      if (!value) return ''
+      if (!value) return ""
 
-      return moment(value).utc().format('DD/MM/YYYY')
+      return moment(value).utc().format("DD/MM/YYYY")
     },
     isodate: (value, addDay, addMonth, addYear) => {
-      if (!value) return ''
+      if (!value) return ""
 
-      return moment(value).add(addDay || 0, 'day').add(addMonth || 0, 'month').add(addYear || 0, 'month').format('YYYY-MM-DD')
+      return moment(value).add(addDay || 0, "day").add(addMonth || 0, "month").add(addYear || 0, "month").format("YYYY-MM-DD")
     },
     datetime: (value) => {
-      if (!value) return ''
+      if (!value) return ""
 
-      return moment(value).format('DD/MM/YYYY HH:mm')
+      return moment(value).format("DD/MM/YYYY HH:mm")
     },
     time: (value, initialFormat) => {
-      if (!value) return ''
+      if (!value) return ""
 
-      return moment(value, initialFormat).format('HH:mm')
+      return moment(value, initialFormat).format("HH:mm")
     },
     daymonth: (value, date, addDay, addMonth) => {
-      if (!value) return ''
+      if (!value) return ""
 
-      if (date) return moment(value).add(addDay || 0, 'day').add(addMonth || 0, 'month').format('DD/MM')
+      if (date) return moment(value).add(addDay || 0, "day").add(addMonth || 0, "month").format("DD/MM")
 
-      return moment(value).add(addDay || 0, 'day').add(addMonth || 0, 'month').format('DD MMMM')
+      return moment(value).add(addDay || 0, "day").add(addMonth || 0, "month").format("DD MMMM")
     },
     customdate: (value, format, addDay, addMonth, initFormat) => {
-      if (!value) return ''
+      if (!value) return ""
 
-      return moment(value, initFormat).add(addDay || 0, 'day').add(addMonth || 0, 'month').format(format)
+      return moment(value, initFormat).add(addDay || 0, "day").add(addMonth || 0, "month").format(format)
     },
     address: (value) => {
       if (!value) return
     
-      let new_address = `${value.street || 'Não encontrado'}, ${value.number}, `
+      let new_address = `${value.street || "Não encontrado"}, ${value.number}, `
     
       if (value.country) new_address += `${value.country}, `
     
-      new_address += `${value.neighborhood || 'Não encontrado'} - ${value.city}, ${value.state}`
+      new_address += `${value.neighborhood || "Não encontrado"} - ${value.city}, ${value.state}`
     
       return new_address
     },
     event: (value) => {
       if (!value) return
     
-      return _.replace(_.deburr(_.lowerCase((value).trim())), / /g, '_')
+      return _.replace(_.deburr(_.lowerCase((value).trim())), / /g, "_")
     }
   };
 
   static mask = {
     docNumber: (value) => {
-      if(!value) return ''
+      if(!value) return ""
 
       value = this.removeMask.docNumber(value)
 
-      if (value.length <= 11) {
-        return value
-          .replace(/\D/g, "")
-          .replace(/(\d{3})(\d)/, "$1.$2")
-          .replace(/(\d{3})(\d)/, "$1.$2")
-          .replace(/(\d{3})(\d{1,2})/, "$1-$2")
-          .replace(/(-\d{2})\d+?$/, "$1")
-      }
       return value
         .replace(/\D/g, "")
-        .replace(/(\d{2})(\d)/, "$1.$2")
         .replace(/(\d{3})(\d)/, "$1.$2")
-        .replace(/(\d{3})(\d{1,2})/, "$1/$2")
-        .replace(/(\d{4})(\d{1,2})/, "$1-$2")
+        .replace(/(\d{3})(\d)/, "$1.$2")
+        .replace(/(\d{3})(\d{1,2})/, "$1-$2")
         .replace(/(-\d{2})\d+?$/, "$1")
     },
     phone: (value) => {
-      if (!value) return ''
+      if (!value) return ""
 
       if (value.length === 14 || value.length === 10) {
         return value
@@ -187,7 +178,7 @@ export class Refactoring {
         .replace(/(-\d{4})\d+?$/, "$1")
     },
     percent: (value) => {
-      if (!value) return ''
+      if (!value) return ""
 
       value = value + ""
       value = value.replace(/\D-+/g, "")
@@ -249,12 +240,12 @@ export class Refactoring {
       return valor.substring(0, 20)
     },
     number: (value) => {
-      if(!value) return ''
+      if(!value) return ""
 
-      return value.replace(/\D/g, '')
+      return value.replace(/\D/g, "")
     },
     date: (value) => {
-      if (!value) return ''
+      if (!value) return ""
 
       return value
         .replace(/\D/g, "")
@@ -267,7 +258,7 @@ export class Refactoring {
 
   static removeMask = {
     phone: (value) => {
-      if (!value) return ''
+      if (!value) return ""
 
       return value
         .replace("(", "")
@@ -276,7 +267,7 @@ export class Refactoring {
         .replace("-", "")
     },
     docNumber: (value) => {
-      if (!value) return ''
+      if (!value) return ""
 
       return value
         .replace(/\./g, "")
@@ -284,19 +275,19 @@ export class Refactoring {
         .replace("-", "")
     },
     percent: (value) => {
-      if(!value) return ''
+      if(!value) return ""
 
-      return value.replace(',', '.').replace('%', '')
+      return value.replace(",", ".").replace("%", "")
     },
     money: (value) => {
-      if(!value) return ''
+      if(!value) return ""
 
-      return value.replace('R$', '').replace(/\./g, '').replace(',', '.')
+      return value.replace("R$", "").replace(/\./g, "").replace(",", ".")
     },
     number: (value) => {
-      if(!value) return ''
+      if(!value) return ""
 
-      return value.replace(/\D/g, '')
+      return value.replace(/\D/g, "")
     }
   };
 
@@ -304,7 +295,7 @@ export class Refactoring {
     open: (url) => {
       if (!url) return
     
-      if (Platform.OS === 'ios') {
+      if (Platform.OS === "ios") {
         return Linking.openURL(url)
       }
     

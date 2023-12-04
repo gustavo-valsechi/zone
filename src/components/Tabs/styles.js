@@ -1,5 +1,5 @@
-import styled from 'styled-components/native'
-import { Colors } from '../../styles';
+import styled from "styled-components/native"
+import { Colors } from "../../styles";
 
 export const Container = styled.ScrollView.attrs({
   showsHorizontalScrollIndicator: false,
@@ -13,8 +13,8 @@ export const Pressable = styled.TouchableOpacity.attrs({
   activeOpacity: 0.8
 })`
   height: 40px;
-  background: ${props => props.current ? Colors['white'] : 'rgba(255, 255, 255, 0.15)'};
-  border-radius: 10px;
+  background: ${props => props.current ? Colors["white"] : "rgba(255, 255, 255, 0.15)"};
+  border-radius: 15px;
   margin-left: 10px;
   padding: 0 15px;
   flex-direction: row;

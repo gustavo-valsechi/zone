@@ -1,11 +1,11 @@
-import styled from 'styled-components/native'
-import Colors from '../../styles/Colors'
-import Animated from 'react-native-reanimated'
+import styled from "styled-components/native"
+import Colors from "../../styles/Colors"
+import Animated from "react-native-reanimated"
 
-export const ContainerWallet = styled(Animated.View)`
-  background: ${Colors['white']};
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+export const ContainerPlate = styled(Animated.View)`
+  background: ${Colors["white"]};
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
   width: 100%;
   position: absolute;
   z-index: 999;

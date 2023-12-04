@@ -1,7 +1,7 @@
-import React, {useEffect, useRef, useState} from 'react';
-import {useField} from '@unform/core';
-import {Container, InputContainer, Error, Input, InputHidden } from './styles'
-import Text from '../../Text'
+import React, {useEffect, useRef, useState} from "react";
+import {useField} from "@unform/core";
+import {Container, InputContainer, Error, Input, InputHidden } from "./styles"
+import Text from "../../Text"
 
 export default function InputToken({ name, onChangeText, className, label, numeric }) {
 
@@ -14,10 +14,10 @@ export default function InputToken({ name, onChangeText, className, label, numer
 
     const {fieldName, registerField, error} = useField(name);
 
-    const [digit_1, setDigit1] = useState('')
-    const [digit_2, setDigit2] = useState('')
-    const [digit_3, setDigit3] = useState('')
-    const [digit_4, setDigit4] = useState('')
+    const [digit_1, setDigit1] = useState("")
+    const [digit_2, setDigit2] = useState("")
+    const [digit_3, setDigit3] = useState("")
+    const [digit_4, setDigit4] = useState("")
 
     useEffect(() => {
         registerField({
@@ -26,7 +26,7 @@ export default function InputToken({ name, onChangeText, className, label, numer
             getValue() {
               if (inputRef.current) return inputRef.current.value;
 
-              return '';
+              return "";
             },
             setValue(ref, value) {
               if (inputRef.current) {
@@ -36,8 +36,8 @@ export default function InputToken({ name, onChangeText, className, label, numer
             },
             clearValue() {
               if (inputRef.current) {
-                inputRef.current.setNativeProps({ text: '' });
-                inputRef.current.value = '';
+                inputRef.current.setNativeProps({ text: "" });
+                inputRef.current.value = "";
               }
             }
         });
@@ -80,14 +80,14 @@ export default function InputToken({ name, onChangeText, className, label, numer
 
     return (
         <Container label={label} error={error}>
-            {label && <Text color='secondary' bold mb={5}>{label}</Text>}
+            {label && <Text color="secondary" bold mb={5}>{label}</Text>}
             <InputContainer className={className} error={error} label={label}>
                 <Input
                     value={digit_1}
                     onChange={_setDigitOne}
                     autoComplete="off"
-                    keyboardType={numeric ? 'numeric' : undefined}
-                    autoCapitalize='none'
+                    keyboardType={numeric ? "numeric" : undefined}
+                    autoCapitalize="none"
                     maxLength={1}
                     ref={dgOneRef}
                     error={error}
@@ -96,8 +96,8 @@ export default function InputToken({ name, onChangeText, className, label, numer
                     value={digit_2}
                     onChange={_setDigitTwo}
                     autoComplete="off"
-                    keyboardType={numeric ? 'numeric' : undefined}
-                    autoCapitalize='none'
+                    keyboardType={numeric ? "numeric" : undefined}
+                    autoCapitalize="none"
                     maxLength={1}
                     ref={dgTwoRef}
                     error={error}
@@ -106,8 +106,8 @@ export default function InputToken({ name, onChangeText, className, label, numer
                     value={digit_3}
                     onChange={_setDigitThree}
                     autoComplete="off"
-                    keyboardType={numeric ? 'numeric' : undefined}
-                    autoCapitalize='none'
+                    keyboardType={numeric ? "numeric" : undefined}
+                    autoCapitalize="none"
                     maxLength={1}
                     ref={dgThreeRef}
                     error={error}
@@ -116,8 +116,8 @@ export default function InputToken({ name, onChangeText, className, label, numer
                     value={digit_4}
                     onChange={_setDigitFour}
                     autoComplete="off"
-                    keyboardType={numeric ? 'numeric' : undefined}
-                    autoCapitalize='none'
+                    keyboardType={numeric ? "numeric" : undefined}
+                    autoCapitalize="none"
                     maxLength={1}
                     ref={dgFourRef}
                     error={error}

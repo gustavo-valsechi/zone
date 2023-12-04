@@ -1,8 +1,8 @@
-import styled from 'styled-components/native'
-import { Colors } from '../../styles';
+import styled from "styled-components/native"
+import { Colors } from "../../styles";
 
 export const Container = styled.View`
-  background: ${Colors['primary']};
+  background: ${Colors["primary"]};
   flex: 1;
 `;
 
@@ -16,8 +16,8 @@ export const ContainerIcon = styled.View`
 export const ContainerMessage = styled.View`
   align-items: center;
   padding: 30px 25px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  background: ${Colors['white']};
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  background: ${Colors["white"]};
   flex: 0.7;
 `;

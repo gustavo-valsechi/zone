@@ -1,6 +1,6 @@
-import React from 'react'
-import Modal from '../../../Modal'
-import { Container, Option, Text, ContainerOption } from './styles'
+import React from "react"
+import Modal from "../../../Modal"
+import { Container, Option, Text, ContainerOption } from "./styles"
 
 export default function ModalOptions(props) {
   return (

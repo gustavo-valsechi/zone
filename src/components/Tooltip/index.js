@@ -6,7 +6,7 @@ import { Dimensions } from "react-native"
 
 export default function Tooltip(props) {
 
-    const width = Dimensions.get('window').width
+    const width = Dimensions.get("window").width
 
     const translateX = useSharedValue(props.animate?.init || 0)
 

@@ -1,18 +1,18 @@
-import React, { useState } from 'react'
-import { Container, Icon, Text } from '../../components'
-import { ContainerHandler, ContainerTitle, ContainerWallet } from './styles'
-import { Dimensions, RefreshControl } from 'react-native'
-import { PanGestureHandler } from 'react-native-gesture-handler'
-import { runOnJS, useAnimatedGestureHandler, useAnimatedStyle, useSharedValue, withDelay, withSpring, withTiming } from 'react-native-reanimated'
+import React, { useState } from "react"
+import { Container, Icon, Text } from "../../components"
+import { ContainerHandler, ContainerTitle, ContainerPlate } from "./styles"
+import { Dimensions, RefreshControl } from "react-native"
+import { PanGestureHandler } from "react-native-gesture-handler"
+import { runOnJS, useAnimatedGestureHandler, useAnimatedStyle, useSharedValue, withDelay, withSpring, withTiming } from "react-native-reanimated"
 
-import Header from './header'
-import Wallet from './wallet'
+import Header from "./header"
+import Plate from "./plate"
 
 export default function Main({ navigation }) {
 
   const [expanded, setExpanded] = useState(false)
 
-  const HEIGHT = Dimensions.get('window').height
+  const HEIGHT = Dimensions.get("window").height
   const HEIGHT_CONTAINER = 270
   const TOP_DIFF_EXPANDED = 190
   const TOP = 270
@@ -21,9 +21,7 @@ export default function Main({ navigation }) {
   const height = useSharedValue(HEIGHT)
 
   const gestureHandler = useAnimatedGestureHandler({
-    onStart: (event, ctx) => {
-      ctx.start = translateY.value
-    },
+    onStart: (event, ctx) => ctx.start = translateY.value,
     onActive: (event, ctx) => {
       runOnJS(setExpanded)(true)
       translateY.value = ctx.start + event.translationY
@@ -64,9 +62,7 @@ export default function Main({ navigation }) {
 
     runOnJS(setExpanded)(true)
     height.value = HEIGHT + TOP_DIFF_EXPANDED
-    translateY.value = withTiming(TOP_DIFF_EXPANDED * -1, {
-      duration: 200,
-    })
+    translateY.value = withTiming(TOP_DIFF_EXPANDED * -1, { duration: 200 })
   }
 
   return (
@@ -74,17 +70,17 @@ export default function Main({ navigation }) {
       <RefreshControl tintColor="#fff" enabled={!expanded} refreshing={false} onRefresh={(() => {})}>
         <Header navigation={navigation} zIndex={expanded ? 99 : 100} />
       </RefreshControl>
-      <ContainerWallet style={[{ top: TOP }, animateStyle]}>
+      <ContainerPlate style={[{ top: TOP }, animateStyle]}>
         <PanGestureHandler activeOffsetY={[-10, 10]} onGestureEvent={gestureHandler}>
           <ContainerHandler>
             <ContainerTitle onPress={toggleTransactions}>
-              <Text bold color='primary' size={16}>Carteira de cashback</Text>
-              <Icon size={27} color='primary' icon={expanded ? 'chevron-down' : 'chevron-up'}/>
+              <Text bold color="primary" size={15}>Placas</Text>
+              <Icon size={27} color="primary" icon={expanded ? "chevron-down" : "chevron-up"}/>
             </ContainerTitle>
           </ContainerHandler>
         </PanGestureHandler>
-        <Wallet expanded={expanded} navigation={navigation} />
-      </ContainerWallet>
+        <Plate expanded={expanded} navigation={navigation} />
+      </ContainerPlate>
     </Container>
   )
 }

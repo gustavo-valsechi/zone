@@ -1,15 +1,15 @@
-import React from 'react'
-import {Container, ContainerIcon} from './styles'
-import Form from '../Form'
-import Icon from '../Icon'
+import React from "react"
+import {Container, ContainerIcon} from "./styles"
+import Form from "../Form"
+import Icon from "../Icon"
 
-import ModalFilter from './Modal'
+import ModalFilter from "./Modal"
 
 export default function Filter(props) {
   return (
     <Container {...props}>
       <Form
-        inputs={[{name: 'search', placeholder: 'Pesquise aqui...', ...props.search}]}
+        inputs={[{name: "search", placeholder: "Pesquise aqui...", ...props.search}]}
         margin="0px"
       />
       {props.modal && props.modal?.enabled !== false && (

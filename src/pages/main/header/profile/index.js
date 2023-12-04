@@ -1,14 +1,13 @@
-import React from 'react'
-import { Avatar, Icon, LoadingBar, Text } from '../../../../components'
-import { Container, ContainerIcons, ContainerLabel, ContainerName, ContainerUser, Pressable } from './styles'
-import { useAuth } from '../../../../contexts/auth'
-import { useSelector } from "react-redux"
+import React from "react"
+import { Avatar, Icon, LoadingBar, Text } from "../../../../components"
+import { Container, ContainerIcons, ContainerLabel, ContainerName, ContainerUser, Pressable } from "./styles"
+import { useAuth } from "../../../../contexts/auth"
 
 export default function Profile(props) {
 
   const { signOut, profile, loadingProfile } = useAuth()
 
-  const notifications = 15
+  const notifications = 5
 
   const badge_custom = `
     position: absolute;
@@ -20,13 +19,13 @@ export default function Profile(props) {
     return `
       position: absolute;
       top: 1.45px;
-      right: ${pending > 9 ? '2.2px' : '5.13px'};
+      right: ${pending > 9 ? "2.2px" : "5.13px"};
     `;
   }
 
   return (
     <Container>
-      <ContainerUser onPress={() => !loadingProfile && props.navigation.navigate('Profile')}>
+      <ContainerUser onPress={() => !loadingProfile && props.navigation.navigate("Profile")}>
         <Avatar loading={loadingProfile} white icon="user-alt" source={profile.photo} />
         <ContainerLabel>
           <Text>Olá,</Text>
@@ -40,12 +39,12 @@ export default function Profile(props) {
       </ContainerUser>
       <ContainerIcons>
         <Pressable onPress={() => props.navigation.navigate("Notifications")}>
-          <Icon icon='bell-outline' />
+          <Icon icon="bell-outline" />
           {notifications > 0 &&
             <>
-              <Icon icon='checkbox-blank-circle' size={15} color='red' custom={badge_custom} />
+              <Icon icon="checkbox-blank-circle" size={15} color="red" custom={badge_custom} />
               <Text size={9} bold custom={badgePending(notifications)}>
-                {notifications < 10 ? notifications : '9+'}
+                {notifications < 10 ? notifications : "9+"}
               </Text>
             </>}
         </Pressable>

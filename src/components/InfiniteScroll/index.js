@@ -1,8 +1,9 @@
-import React from 'react'
-import { RefreshControl, FlatList } from 'react-native'
-import { ContainerLoading } from './styles'
-import Empty from '../Empty'
-import LoadingBar from '../LoadingBar'
+import React from "react"
+import { RefreshControl, FlatList } from "react-native"
+import { ContainerLoading } from "./styles"
+import Empty from "../Empty"
+import LoadingBar from "../LoadingBar"
+import _ from "lodash"
 
 export default function InfiniteScroll(props) {
     return (
@@ -29,11 +30,13 @@ export default function InfiniteScroll(props) {
                     /> : undefined
                 }
                 ListEmptyComponent={
-                    <Empty
-                        icon={props.empty?.icon || "list-ul"}
-                        message={props.empty?.message || "Nenhum registro encontrado"}
-                        button={props.empty?.button}
-                    />
+                    props.empty?.enabled ?? true
+                    ? <Empty
+                            icon={props.empty?.icon || "list-ul"}
+                            message={props.empty?.message || "Nenhum registro encontrado"}
+                            button={props.empty?.button}
+                        />
+                    : <></>
                 }
             >
                 {props.children}

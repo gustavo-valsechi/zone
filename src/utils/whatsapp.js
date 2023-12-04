@@ -1,9 +1,9 @@
-import { Platform, Linking } from 'react-native'
+import { Platform, Linking } from "react-native"
 
 const whatsapp = (phone, message) => {
   const text = encodeURI(message || `Olá, tudo bem?`)
 
-  if (Platform.OS === 'ios') {
+  if (Platform.OS === "ios") {
     return Linking.openURL(`https://api.whatsapp.com/send?phone=55${phone}&text=${text}`)
   }
 

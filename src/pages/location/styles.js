@@ -1,17 +1,17 @@
-import styled from 'styled-components/native'
-import { Colors } from '../../styles'
+import styled from "styled-components/native"
+import { Colors } from "../../styles"
 
 export const ContainerLocation = styled.View`
-  background: ${Colors['white']};
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+  background: ${Colors["white"]};
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
   flex: 1;
 `;
 
 export const ContainerMap = styled.View`
-  background: ${Colors['tertiary']};
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+  background: ${Colors["tertiary"]};
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
   overflow: hidden;
   width: 100%;
   height: ${(props) => props.denied ? "170px" : "260px"};
@@ -25,9 +25,9 @@ export const ContainerAlert = styled.View`
 `;
 
 export const ContainerContent = styled.View`
-  background: ${Colors['white']};
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+  background: ${Colors["white"]};
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
   width: 100%;
   flex: 1;
   padding: 25px 0 0;

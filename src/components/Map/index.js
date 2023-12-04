@@ -1,9 +1,9 @@
-import React from 'react'
-import { ContainerMap, Image, ContainerMarker } from './styles'
-import { Marker } from 'react-native-maps'
-import Avatar from '../Avatar'
-import LoadingBar from '../LoadingBar'
-import _ from 'lodash'
+import React from "react"
+import { ContainerMap, Image, ContainerMarker } from "./styles"
+import { Marker } from "react-native-maps"
+import Avatar from "../Avatar"
+import LoadingBar from "../LoadingBar"
+import _ from "lodash"
 
 export default function Map(props) {
   return (
@@ -25,7 +25,7 @@ export default function Map(props) {
             <ContainerMarker>
               {marker.photo
               ? <Image source={{ uri: marker.photo }} />
-              : <Avatar icon="store" size={30} />}
+              : <Avatar icon="car" size={30} />}
             </ContainerMarker>
           </Marker>
         )}

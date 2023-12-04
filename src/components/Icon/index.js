@@ -27,5 +27,5 @@ export default function GlobalIcon(props) {
     "antDesign": <AntDesign {...props} />,
   }
 
-  return packs[props.pack || 'materialIcons']
+  return packs[props.pack || "materialIcons"]
 }

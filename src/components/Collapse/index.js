@@ -17,17 +17,17 @@ export default function Collapse(props) {
         <Title>
           {!!props.header?.icon && 
             <Icon 
-              pack={props.header?.icon?.pack || 'fontAwesome5'} 
+              pack={props.header?.icon?.pack || "fontAwesome5"} 
               mr={10} 
-              color={!!props.disabled ? 'black-4' : 'primary'}
+              color={!!props.disabled ? "black-4" : "primary"}
               size={props.header?.icon?.size || 13} 
               icon={props.header?.icon?.name || props.header?.icon} 
               {...props.header?.icon}
             />
           }
-          <Text bold color={!!props.disabled ? 'black-4' : 'primary'}>{props.header?.title || props.title}</Text>
+          <Text bold color={!!props.disabled ? "black-4" : "primary"}>{props.header?.title || props.title}</Text>
         </Title>
-        <Icon color={!!props.disabled ? 'black-4' : 'primary'} size={23} icon={show ? 'chevron-down' : 'chevron-up'} />
+        <Icon color={!!props.disabled ? "black-4" : "primary"} size={23} icon={show ? "chevron-down" : "chevron-up"} />
       </Header>
       {show && 
         <Body p={props.body?.padding}>

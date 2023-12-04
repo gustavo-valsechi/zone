@@ -40,9 +40,9 @@ export default function Avatar(props) {
               ? <Photo key={index} source={data} custom={groupStyle(index)} />
               : <Container key={index} custom={groupStyle(index)}>
                   <Icon
-                    pack={props.icon?.pack || 'fontAwesome5'}
+                    pack={props.icon?.pack || "fontAwesome5"}
                     size={props.size ? ((props.size - 10) / 2.5) : 8.5}
-                    icon={props.icon?.name || props.icon || 'user-alt'}
+                    icon={props.icon?.name || props.icon || "user-alt"}
                   />
                 </Container>
             ))}
@@ -57,9 +57,9 @@ export default function Avatar(props) {
               {..._.omit(props, ["source"])} 
             />
           : <Icon
-              pack={props.icon?.pack || 'fontAwesome5'}
+              pack={props.icon?.pack || "fontAwesome5"}
               size={props.size ? (props.size / 2.5) : 15}
-              icon={props.icon?.name || props.icon || 'user-alt'}
+              icon={props.icon?.name || props.icon || "user-alt"}
             />}
     </Container>
   )

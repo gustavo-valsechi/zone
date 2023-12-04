@@ -1,10 +1,10 @@
 import React from "react"
 import { Container, ContainerCard, Indicator, ContainerUser, ContainerLabel } from "./styles"
-import { PanGestureHandler } from 'react-native-gesture-handler'
-import { withSpring, withTiming, useSharedValue, useAnimatedStyle, useAnimatedGestureHandler } from 'react-native-reanimated'
+import { PanGestureHandler } from "react-native-gesture-handler"
+import { withSpring, withTiming, useSharedValue, useAnimatedStyle, useAnimatedGestureHandler } from "react-native-reanimated"
 import { Refactoring } from "../../utils"
-import Text from '../Text'
-import Avatar from '../Avatar'
+import Text from "../Text"
+import Avatar from "../Avatar"
 
 export default function GlobalCardAnimated(props) {
 
@@ -42,8 +42,8 @@ export default function GlobalCardAnimated(props) {
             <ContainerUser>
               <Avatar source={props.customer.photo || props.customer.photo_url || props.customer.foto_url} />
               <ContainerLabel>
-                <Text scratched={props.customer.scratched} color='secondary' bold>
-                  {props.customer.name || 'Cadastro rápido'}
+                <Text scratched={props.customer.scratched} color="secondary" bold>
+                  {props.customer.name || "Cadastro rápido"}
                 </Text>
               </ContainerLabel>
             </ContainerUser>}

@@ -1,7 +1,7 @@
-import styled from 'styled-components/native'
+import styled from "styled-components/native"
 
-import Modal from 'react-native-modal';
-import { Dimensions, ScrollView } from 'react-native';
+import Modal from "react-native-modal";
+import { Dimensions, ScrollView } from "react-native";
 
 const MIN_WIDTH = Dimensions.get("window").width;
 const MIN_HEIGHT = Dimensions.get("window").height;
@@ -20,17 +20,17 @@ export const GlobalModal = styled(Modal).attrs({
 
 export const Container = styled.View`
   background: #fff;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  padding: 40px 25px 0px 25px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  padding: ${props => props.padding || "40px 25px 0px 25px"};
   max-height: ${MIN_HEIGHT - 150}px;
 `;
 
 export const Scroll = styled.ScrollView.attrs((props) => ({
-  keyboardDismissMode: 'none',
+  keyboardDismissMode: "none",
   showsHorizontalScrollIndicator: false,
   showsVerticalScrollIndicator: false,
-  keyboardShouldPersistTaps: 'never',
+  keyboardShouldPersistTaps: "never",
   scrollEnabled: !props.enabled
 }))``;
 

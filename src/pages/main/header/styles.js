@@ -1,8 +1,8 @@
-import styled from 'styled-components/native'
+import styled from "styled-components/native"
 
 export const Container = styled.View`
   padding: 25px 0;
-  z-index: ${props => props.zIndex || '100'};
+  z-index: ${props => props.zIndex || "100"};
 `;
 
 export const ContainerAmount = styled.View`
@@ -13,8 +13,6 @@ export const ContainerAmount = styled.View`
   align-items: center;
 `;
 
-export const Amount = styled.TouchableOpacity.attrs({
-  activeOpacity: .9
-})`
+export const Amount = styled.View`
   flex: 1;
 `;

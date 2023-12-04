@@ -1,5 +1,5 @@
-import styled from 'styled-components/native'
-import Colors from '../../../styles/Colors'
+import styled from "styled-components/native"
+import Colors from "../../../styles/Colors"
 
 export const Container = styled.View`
   flex-direction: row;
@@ -15,8 +15,8 @@ export const Action = styled.TouchableOpacity.attrs({
   border-radius: 15px;
   border: .7px rgba(0, 0, 0, 0.5);
   background: ${props => Colors[props.checked 
-    ? !!props.disabled ? 'black-1' : 'primary' 
-    : !!props.disabled ? 'black-1' : 'white'
+    ? !!props.disabled ? "black-1" : "primary" 
+    : !!props.disabled ? "black-1" : "white"
   ]};
   justify-content: center;
   align-items: center;

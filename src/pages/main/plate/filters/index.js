@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { Filter } from '../../../../components'
+import React, { useState } from "react"
+import { useDispatch } from "react-redux"
+import { Filter } from "../../../../components"
 
 export default function Filters(props) {
 

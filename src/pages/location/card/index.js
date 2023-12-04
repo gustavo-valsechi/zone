@@ -1,8 +1,8 @@
-import React from 'react'
-import { Avatar, Card, Icon, Text } from '../../../components'
-import { Container, ContainerContent, ContainerLogo, Content } from './styles'
-import { Refactoring } from '../../../utils'
-import _ from 'lodash'
+import React from "react"
+import { Avatar, Card, Icon, Text } from "../../../components"
+import { Container, ContainerContent, ContainerLogo, Content } from "./styles"
+import { Refactoring } from "../../../utils"
+import _ from "lodash"
 
 export default function EstablishmentCard(props) {
   return (
@@ -18,10 +18,10 @@ export default function EstablishmentCard(props) {
           </Content>
           <Content flex={.25} align="flex-end">
             <Text bold color="black-4" size={12} lines={5} align="right">
-              <Icon pack='material' icon='location-on' size={12} color="black-4" />{' '}
+              <Icon pack="material" icon="location-on" size={12} color="black-4" />{" "}
               {!props.denied ? `${props.distance} km` : props.address?.state}
             </Text>
-            <Text bold color="blue" size={12} lines={5} align="right">{props.percentItem || '0.00'} %</Text>
+            <Text bold color="blue" size={12} lines={5} align="right">{props.percentItem || "0.00"} %</Text>
           </Content>
         </ContainerContent>
       </Container>

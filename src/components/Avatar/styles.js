@@ -1,6 +1,6 @@
-import styled from 'styled-components/native'
+import styled from "styled-components/native"
 import { Colors } from "../../styles"
-import _ from 'lodash'
+import _ from "lodash"
 
 export const Container = styled.View`
   width: ${props => props.width || props.size || 40}px;
@@ -10,10 +10,10 @@ export const Container = styled.View`
     (props.source && (_.includes(props.source, "http") || _.includes(props.source, "file"))) 
     || props.loading 
     || props.group
-      ? 'transparent' 
+      ? "transparent" 
       : props.white 
-        ? 'rgba(255, 255, 255, 0.15)' 
-        : Colors['black-15']
+        ? "rgba(255, 255, 255, 0.15)" 
+        : Colors["black-15"]
   };
   align-items: center;
   justify-content: center;

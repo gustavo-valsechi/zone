@@ -1,12 +1,12 @@
-import styled from 'styled-components/native';
+import styled from "styled-components/native";
 import {Colors} from "../../../styles";
 
 export const ContainerForm = styled.View`
   background: ${props => props.color || Colors.white};
   flex: 1;
   padding: 25px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
   justify-content: space-between;
 `;
 

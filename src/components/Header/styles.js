@@ -1,5 +1,5 @@
-import styled from 'styled-components/native'
-import {Colors} from '../../styles'
+import styled from "styled-components/native"
+import {Colors} from "../../styles"
 
 export const Container = styled.View`
   flex-direction: row;
@@ -22,7 +22,7 @@ export const ContainerPress = styled.TouchableOpacity.attrs({
 })`
   justify-content: center;
   flex: 0.5;
-  ${props => props.flex && 'align-items: center;'}
-  flex-direction: ${props => props.flex || 'column'};
+  ${props => props.flex && "align-items: center;"}
+  flex-direction: ${props => props.flex || "column"};
   margin-right: ${props => props.mr || 0}px;
 `;

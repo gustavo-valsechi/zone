@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react'
-import Modal from '../../Modal'
-import Form from '../../Form'
-import { Container } from './styles'
+import React, { useEffect } from "react"
+import Modal from "../../Modal"
+import Form from "../../Form"
+import { Container } from "./styles"
 
 export default function ModalFilter(props) {
   return (
@@ -11,7 +11,7 @@ export default function ModalFilter(props) {
       title="Filtros"
       buttons={[
         {
-          label: 'filtrar',
+          label: "filtrar",
           onPress: () => props.formRef.current.submitForm(),
           hide: !props.onSubmit,
           analytics: { 
@@ -20,7 +20,7 @@ export default function ModalFilter(props) {
           }
         },
         {
-          label: 'resetar',
+          label: "resetar",
           onPress: () => {
             props.onClear()
             setTimeout(() => props.formRef.current.submitForm(), 10)
@@ -29,15 +29,15 @@ export default function ModalFilter(props) {
           analytics: { enabled: false },
         },
         {
-          color: 'black-0',
-          label: { text: 'fechar', color: 'secondary' },
+          color: "black-0",
+          label: { text: "fechar", color: "secondary" },
           onPress: props.onClose,
           analytics: { enabled: false },
         },
       ]}>
       <Container>
         <Form
-          margin='0px'
+          margin="0px"
           formRef={props.formRef}
           onSubmit={props.onSubmit}
           inputs={props.inputs}
