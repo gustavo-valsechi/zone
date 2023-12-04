@@ -1,3 +1,3 @@
-import Colors from "./Colors"
+import Colors from "./colors"
 
 export { Colors }
