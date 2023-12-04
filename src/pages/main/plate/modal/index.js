@@ -2,6 +2,7 @@ import React, { useRef } from "react"
 import { Container } from "./styles"
 import { Form, Modal } from "../../../../components"
 import * as Yup from "yup"
+import _ from "lodash"
 
 export default function ModalPlate(props) {
   const formRef = useRef({})
@@ -20,7 +21,7 @@ export default function ModalPlate(props) {
 
       formRef.current.setErrors({})
 
-      const content = [{ plate: data.plate }, ...props.content.value]
+      const content = [{ plate: _.upperCase(data.plate) }, ...props.content.value]
 
       props.content.set(content)
 
