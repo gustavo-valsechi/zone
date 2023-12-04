@@ -1,5 +1,5 @@
 import styled from "styled-components/native"
-import Colors from "../../styles/Colors"
+import Colors from "../../styles/colors"
 
 export const Container = styled.View`
   border: .7px ${props => Colors[props.error ? "danger" : "black-2"]};

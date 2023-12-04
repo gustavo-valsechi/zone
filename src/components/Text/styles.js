@@ -1,5 +1,5 @@
 import styled from "styled-components/native"
-import Colors from "../../styles/Colors"
+import Colors from "../../styles/colors"
 
 export const Text = styled.Text.attrs(props => ({
   numberOfLines: props.lines || 1

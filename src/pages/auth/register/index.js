@@ -23,7 +23,7 @@ export default function Register({ navigation }) {
         
             formRef.current.setErrors({})
         
-            navigation.navigate("Start")
+            navigation.navigate("Login")
         } catch (err) {
             if (err instanceof Yup.ValidationError) {
                 const errorMessages = {}
@@ -59,7 +59,7 @@ export default function Register({ navigation }) {
                         onSubmit={onSubmit}
                         inputs={[
                             { name: "name", label: "Nome", maxLength: 255 },
-                            { name: "cpf", label: "CPF", maxLength: 14 },
+                            { name: "document_number", label: "CPF", maxLength: 14 },
                             { name: "phone", label: "Telefone", maxLength: 15 },
                             { name: "email", label: "E-mail", maxLength: 255 },
                             { name: "password", label: "Senha", maxLength: 255 },

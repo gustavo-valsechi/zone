@@ -1,5 +1,5 @@
 import styled from "styled-components/native"
-import Colors from "../../styles/Colors"
+import Colors from "../../styles/colors"
 
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons"
 import FontAwesome5Icons from "@expo/vector-icons/FontAwesome5"

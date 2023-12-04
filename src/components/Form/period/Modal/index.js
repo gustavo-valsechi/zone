@@ -3,7 +3,7 @@ import DatePicker from "react-native-date-picker"
 import Modal from "../../../Modal"
 import Collapse from "../../../Collapse"
 import { Container } from "./styles"
-import Colors from "../../../../styles/Colors"
+import Colors from "../../../../styles/colors"
 
 export default function ModalPeriod(props) {
   return (

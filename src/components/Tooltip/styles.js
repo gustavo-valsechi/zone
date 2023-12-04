@@ -1,5 +1,5 @@
 import styled from "styled-components/native"
-import Colors from "../../styles/Colors"
+import Colors from "../../styles/colors"
 import Animated from "react-native-reanimated"
 
 const arrow_position = (position, color) => {

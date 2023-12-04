@@ -1,5 +1,5 @@
 import styled from "styled-components/native"
-import Colors from "../../styles/Colors"
+import Colors from "../../styles/colors"
 import SafeAreaView from "react-native-safe-area-view";
 
 export const ContainerNummus = styled.View`
